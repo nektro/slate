@@ -19,4 +19,5 @@ export async function parse(text) {
     .then(x => parser.convert_tokens_to_expressions(x))
     .then(x => parser.parse(x))
     .then(x => converter.normalize(x))
+    .then(x => x.convert_to_wast())
 }
