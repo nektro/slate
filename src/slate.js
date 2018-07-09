@@ -35,4 +35,5 @@ export async function parse(text) {
     .then(x => converter.normalize(x))
     .then(x => x.convert_to_wast())
     .then(x => convert_to_wasm(x))
+    .then(x => WebAssembly.instantiateStreaming(x));
 }
