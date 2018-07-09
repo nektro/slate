@@ -18,7 +18,7 @@ With that disclaimer out of the way I'm going to show what a potential program m
 - Meta-programming made easy. Object oriented programming is used to represent the real or virtual world in code. The world is complex but that doesn't mean our code has to. Operator overloading, object extensions, etc, will be added very early on.
 
 ## Conributing
-Found a bug? Theres a lot of 'em! Post them all over on the [bug tracker](https://github.com/nektro/slate/issues), or if you're brave and found a fix yourself, definitely submit a [pull request](https://github.com/nektro/apps.nektro.net/pulls)!
+Found a bug? Theres a lot of 'em! Post them all over on the [bug tracker](https://github.com/nektro/slate/issues), or if you're brave and found a fix yourself, definitely submit a [pull request](https://github.com/nektro/slate/pulls)!
 
 ## License
 This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
