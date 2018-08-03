@@ -1,6 +1,10 @@
 /**
  */
 //
+BigInt.prototype._get_type = function() {
+    return "i32";
+};
+//
 export class S_Object {
     constructor() {
     }
@@ -58,6 +62,9 @@ export class S_Return extends S_Object {
     constructor(v) {
         super();
         this.value = v;
+    }
+    _get_type() {
+        return this.value._get_type();
     }
     convert_to_wast() {
         return this.value.convert_to_wast();
