@@ -77,6 +77,11 @@ export class S_Add extends S_Object {
         this.b = y;
     }
     convert_to_wast() {
-        return ` (i32.add (i32.const ${this.a}) (i32.const ${this.b}))`;
+        const ta = this.a._get_type();
+        const tb = this.b._get_type();
+        if (ta === "i32" && tb === "i32") {
+            return ` (i32.add (i32.const ${this.a}) (i32.const ${this.b}))`;
+        }
+        throw new Error(`Cannot add types "${ta}" and "${tb}"`);
     }
 }
