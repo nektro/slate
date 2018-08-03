@@ -1,6 +1,10 @@
 # Slate
 
 ![loc](https://tokei.rs/b1/github/nektro/slate)
+![license](https://img.shields.io/github/license/nektro/slate.svg)
+![contribs](https://img.shields.io/github/contributors/nektro/slate.svg)
+![issues](https://img.shields.io/github/issues/nektro/slate.svg)
+![prs](https://img.shields.io/github/issues-pr/nektro/slate.svg)
 
 A new, strongly-typed, fast, and secure programming language made for [WebAssembly](https://webassembly.org/). This repository contains the compiler, standard library, tests, and documentation. Slate syntax is largely inspried by JavaScript with influences also from Java, Kotlin, and more.
 
