@@ -4,7 +4,7 @@
 import { lexer } from "./lexer.js";
 import { parser } from "./parser.js";
 import { converter } from "./converter.js";
-import "https://cdn.rawgit.com/WebAssembly/wabt/e5b3830/demo/libwabt.js";
+import "https://cdn.jsdelivr.net/gh/WebAssembly/wabt@e5b3830/demo/libwabt.js";
 
 //
 export {
