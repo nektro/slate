@@ -27,6 +27,7 @@ More code examples can be found in the [`./tests/`](./tests/) directory.
 - https://github.com/golang/go
 - https://github.com/ziglang/zig
 - https://github.com/denoland/deno
+- https://github.com/rust-lang/rust
 
 ## Contributing
 Issues and Pull Requests welcome. As the project progresses I will make a list of focus areas.
