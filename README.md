@@ -8,12 +8,11 @@
 
 A new programming langauge made by me. Used as a tool to learn about compilers.
 
-## Using
-
-Dependencies
+## Built With
 - Golang 1.14
 - LLVM 10
 
+## Usage
 Running `./start_local.sh` will build and run Slate on the x86_64 Hello World. Feel free to edit either file.
 ```
 go build
@@ -21,6 +20,8 @@ go build
 llvm-as-10 out.ll
 lli-10 out.bc
 ```
+
+More code examples can be found in the [`./tests/`](./tests/) directory.
 
 ## Inspirations
 - https://github.com/golang/go
