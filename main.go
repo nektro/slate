@@ -9,24 +9,12 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/llir/llvm/ir/constant"
-	"github.com/llir/llvm/ir/types"
 	"github.com/nektro/slate/pgk/parse/ast"
 	"github.com/nektro/slate/pgk/slate"
 )
 
 // Version takes in version string from build_all.sh
 var Version = "vMASTER"
-
-// shorthands
-var (
-	i32  = types.I32
-	zero = constant.NewInt(i32, 0)
-	one  = constant.NewInt(i32, 1)
-	i8   = types.I8
-	Ptr  = types.NewPointer
-	i64  = types.I64
-)
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
