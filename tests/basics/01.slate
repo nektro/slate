@@ -3,7 +3,7 @@ pub const main = func() {
 }
 
 const print = func(s: string) {
-    # 1 is the file descriptor for std out
+    # 1 is the file descriptor for std out on linux
     write(1, s,)
 }
 
