@@ -27,7 +27,7 @@ func (f *File) RemoveComments() {
 
 func (f *File) Print() {
 	for i, item := range f.tokens {
-		log.Println(f.file+":"+item.LP(), i, item.PL())
+		log.Println(f.file+":"+item.LP()+"\t", i, "\t"+item.PL())
 	}
 }
 

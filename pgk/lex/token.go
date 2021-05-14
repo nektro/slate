@@ -24,6 +24,7 @@ func (v *Token) String() string {
 	return fmt.Sprintf("%s{%s:%d}", v.PL(), v.LP(), v.S)
 }
 
+// PL returns T_type(value)
 func (v *Token) PL() string {
 	return fmt.Sprintf("T_%s("+style.BgRed+"%s"+style.ResetBgColor+")", v.T, v.V)
 }

@@ -29,7 +29,7 @@ func init() {
 }
 
 func (p *ParserType) fail(s string) {
-	panic(fmt.Sprint("parse failure:", s))
+	panic(fmt.Sprint("parse failure: ", s))
 }
 
 //
@@ -75,7 +75,7 @@ func (p *ParserType) Variable(f *lex.File, pub, cnst bool) ast.Node {
 		return &ast.Variable{ast.ScopeGlobal, n, pub, cnst, p.FuncDecl(f)}
 	}
 
-	p.fail("variable: didn't see func")
+	p.fail("variable: didn't see func, saw " + f.Get().String())
 	return nil
 }
 
