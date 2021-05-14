@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"time"
 
+	"github.com/nektro/go-util/util"
 	"github.com/nektro/slate/pgk/parse/ast"
 	"github.com/nektro/slate/pgk/slate"
 )
@@ -28,9 +29,12 @@ func main() {
 
 	// log.Println("run:", *fRun)
 
-	n, _ := filepath.Abs(*fRun)
-	f, _ := os.Open(n)
-	b, _ := ioutil.ReadAll(f)
+	n, err := filepath.Abs(*fRun)
+	util.DieOnError(err)
+	f, err := os.Open(n)
+	util.DieOnError(err)
+	b, err := ioutil.ReadAll(f)
+	util.DieOnError(err)
 	s := string(b)
 	// fmt.Println(s)
 
@@ -45,5 +49,4 @@ func main() {
 	module := ast.Compile(node)
 	out, _ := os.Create("./out.ll")
 	module.WriteTo(out)
-
 }
