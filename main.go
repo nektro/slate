@@ -26,7 +26,7 @@ func main() {
 		log.Fatalln("-run is empty")
 	}
 
-	log.Println("run:", *fRun)
+	// log.Println("run:", *fRun)
 
 	n, _ := filepath.Abs(*fRun)
 	f, _ := os.Open(n)
@@ -35,12 +35,12 @@ func main() {
 	// fmt.Println(s)
 
 	file := slate.Lexer.LexAll(n, s)
-	log.Println("lex:", "success:", "collected", file.Len(), "tokens")
+	// log.Println("lex:", "success:", "collected", file.Len(), "tokens")
 	file.RemoveComments()
 	// file.Print()
 
 	node := slate.Parser.Parse(file)
-	log.Println("parse:", "success:", node)
+	// log.Println("parse:", "success:", node)
 
 	module := ast.Compile(node)
 	out, _ := os.Create("./out.ll")
