@@ -8,6 +8,8 @@
 
 A new programming language made by me. Used as a tool to learn about compilers.
 
+> Note: some code snippets and examples may only work on arm64 Linux since that's what I have.
+
 ## Built With
 
 - Golang 1.14

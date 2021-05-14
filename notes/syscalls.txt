@@ -1,5 +1,5 @@
 https://github.com/ziglang/zig/blob/master/lib/std/os/linux.zig
-https://github.com/ziglang/zig/blob/master/lib/std/os/linux/x86_64.zig
-https://github.com/ziglang/zig/blob/master/lib/std/os/bits/linux/x86_64.zig
+https://github.com/ziglang/zig/blob/master/lib/std/os/linux/arm64.zig
+https://github.com/ziglang/zig/blob/master/lib/std/os/bits/linux/arm64.zig
 
 https://filippo.io/linux-syscall-table/
