@@ -33,14 +33,12 @@ func (p *FuncDecl) Compile(mod *ir.Module, globals VarScope, name string) {
 		ftype = llvm.I32
 	}
 	fn := mod.NewFunc(fname, ftype, params...)
-	if len(p.Body.Calls) > 0 {
-		blk := fn.NewBlock("")
-		p.Body.Compile(mod, globals, fnprms, blk)
-		if ftype == llvm.I32 {
-			blk.NewRet(llvm.Int32(0))
-		} else {
-			blk.NewRet(nil)
-		}
+	blk := fn.NewBlock("")
+	p.Body.Compile(mod, globals, fnprms, blk)
+	if ftype == llvm.I32 {
+		blk.NewRet(llvm.Int32(0))
+	} else {
+		blk.NewRet(nil)
 	}
 	globals[name] = fn
 }
