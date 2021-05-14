@@ -10,7 +10,7 @@ trap 'err_report $?' ERR
 
 go build
 
-for file in $(find ./tests/ -type f)
+for file in $(find tests | sort | grep \\.slate$)
 do
     ./slate -run $file
 done
