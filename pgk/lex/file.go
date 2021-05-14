@@ -31,7 +31,7 @@ func (f *File) Print() {
 	}
 }
 
-func (f *File) get() *Token {
+func (f *File) Get() *Token {
 	if f.index >= len(f.tokens) {
 		panic(fmt.Sprint("parse failure:", "specified token index at or past file length"))
 	}
@@ -53,15 +53,15 @@ func (f *File) Left() []*Token {
 }
 
 func (f *File) Type(y TokenType) *Token {
-	t := f.get()
 	if t.T != y {
+	t := f.Get()
 		panic(fmt.Sprint("expected token type:", y, ",", "instead got:", t.PL(), ":", f.file+":"+t.LP()))
 	}
 	return f.ret(t)
 }
 
 func (f *File) TypeS(y string) *Token {
-	t := f.get()
+	t := f.Get()
 	if string(t.T) != y {
 		panic(fmt.Sprint("expected token type:", y, ",", "instead got:", t.PL(), ":", f.file+":"+t.LP()))
 	}
@@ -69,7 +69,7 @@ func (f *File) TypeS(y string) *Token {
 }
 
 func (f *File) Key(s string) *Token {
-	t := f.get()
+	t := f.Get()
 	if t.T != TTKey {
 		f.fail("keyword", s, t)
 	}
@@ -80,7 +80,7 @@ func (f *File) Key(s string) *Token {
 }
 
 func (f *File) Ident(s string) *Token {
-	t := f.get()
+	t := f.Get()
 	if t.T != TTWrd {
 		f.fail("token", s, t)
 	}
@@ -91,7 +91,7 @@ func (f *File) Ident(s string) *Token {
 }
 
 func (f *File) Symbol(s string) *Token {
-	t := f.get()
+	t := f.Get()
 	if t.T != TTSym {
 		f.fail("symbol", s, t)
 	}
