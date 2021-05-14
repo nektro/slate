@@ -11,17 +11,17 @@ A new programming language made by me. Used as a tool to learn about compilers.
 ## Built With
 
 - Golang 1.14
-- LLVM 10
+- LLVM 11
 
 ## Usage
 
-Running `./start_local.sh` will build and run Slate on the x86_64 Hello World. Feel free to edit either file.
+Running `./start_local.sh` will build and run Slate on the arm64 Linux Hello World. Feel free to edit either file.
 
 ```
 go build
 ./slate -run {path/to/src_file.slate}
-llvm-as-10 out.ll
-lli-10 out.bc
+llvm-as-11 out.ll
+lli-11 out.bc
 ```
 
 More code examples can be found in the [`./tests/`](./tests/) directory.

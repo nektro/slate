@@ -7,6 +7,6 @@ go build
 ./slate \
 -run './tests/basics/01.slate' \
 
-llvm-as-10 out.ll
+llvm-as-11 out.ll
 
-lli-10 out.bc
+lli-11 out.bc
