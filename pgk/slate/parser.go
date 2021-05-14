@@ -75,6 +75,9 @@ func (p *ParserType) Variable(f *lex.File, pub, cnst bool) ast.Node {
 	if f.Try(f.Key, "func") {
 		return &ast.Variable{ast.ScopeGlobal, n, pub, cnst, p.FuncDecl(f)}
 	}
+	if x := f.TryV(f.Type, lex.TTNum.S()); x != nil {
+		return &ast.Variable{ast.ScopeGlobal, n, pub, cnst, x}
+	}
 
 	p.fail("variable: didn't see func, saw " + f.Get().String())
 	return nil
