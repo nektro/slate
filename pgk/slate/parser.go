@@ -70,6 +70,7 @@ func (p *ParserType) Program(f *lex.File) ast.Node {
 func (p *ParserType) Variable(f *lex.File, pub, cnst bool) ast.Node {
 	n := p.Arg(f).(*ast.Arg)
 	f.Symbol("=")
+	defer f.Symbol(";")
 
 	if f.Try(f.Key, "func") {
 		return &ast.Variable{ast.ScopeGlobal, n, pub, cnst, p.FuncDecl(f)}

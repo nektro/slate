@@ -1,18 +1,18 @@
 pub const main = func() {
     print("Hello, world!\n",)
-}
+};
 
 const print = func(s: string) {
     # 1 is the file descriptor for std out on linux
     write(1, s,)
-}
+};
 
 const write = func(fd: int, s: string) {
     # 64 is the ID for the write syscall on arm64
     syscall3(64, fd, s.ptr, s.len,)
-}
+};
 
 const syscall3 = func(call: int, arg1: int, arg2: int, arg3: int) {
     # this function only works on arm64
     asm "svc #0", "=r,{x8},{x0},{x1},{x2}", call, arg1, arg2, arg3
-}
+};
