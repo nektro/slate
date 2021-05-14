@@ -104,7 +104,7 @@ func (p *ParserType) FuncDecl(f *lex.File) ast.Node {
 
 func (p *ParserType) Arg(f *lex.File) ast.Node {
 	defer f.Try(f.Symbol, ",")
-	t1 := f.Type(lex.TTWrd)
+	t1 := f.Type(lex.TTWrd.S())
 	if f.Try(f.Symbol, ":") {
 		t2 := p.Ref(f)
 		return &ast.Arg{t1.V, t2.(*ast.Ref)}
@@ -114,9 +114,9 @@ func (p *ParserType) Arg(f *lex.File) ast.Node {
 
 func (p *ParserType) Ref(f *lex.File) ast.Node {
 	dots := []string{}
-	dots = append(dots, f.Type(lex.TTWrd).V)
+	dots = append(dots, f.Type(lex.TTWrd.S()).V)
 	for f.Try(f.Symbol, ".") {
-		dots = append(dots, f.Type(lex.TTWrd).V)
+		dots = append(dots, f.Type(lex.TTWrd.S()).V)
 	}
 	return &ast.Ref{dots}
 }
@@ -152,7 +152,7 @@ func (p *ParserType) FuncCall(f *lex.File) ast.Node {
 	}
 	res := new(ast.FuncCall)
 	res.Builtin = f.Try(f.Symbol, "@")
-	res.Name = f.Type(lex.TTWrd).V
+	res.Name = f.Type(lex.TTWrd.S()).V
 	f.Symbol("(")
 	l := len(res.Params)
 	for {
@@ -176,9 +176,9 @@ func (p *ParserType) FuncCall(f *lex.File) ast.Node {
 func (p *ParserType) InlineAsm(f *lex.File) ast.Node {
 	res := &ast.InlineAsm{}
 	f.Key("asm")
-	res.Call = f.Type(lex.TTStr).SV()
+	res.Call = f.Type(lex.TTStr.S()).SV()
 	f.Symbol(",")
-	res.Constraint = f.Type(lex.TTStr).SV()
+	res.Constraint = f.Type(lex.TTStr.S()).SV()
 	for {
 		if !f.Try(f.Symbol, ",") {
 			break
