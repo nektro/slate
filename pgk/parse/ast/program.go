@@ -24,7 +24,6 @@ func (p *Program) Compile(mod *ir.Module) {
 	for _, item := range p.Stmts {
 		notdone = append(notdone, item.Name.Name)
 	}
-	// fmt.Println("compile:", "notdone:", notdone)
 	for {
 		if len(notdone) == 0 {
 			break
@@ -35,7 +34,6 @@ func (p *Program) Compile(mod *ir.Module) {
 				stmt.Compile(mod, globals)
 				notdone = stringsu.Remove(notdone, item)
 				available = append(available, item)
-				// fmt.Println("compile:", "complete:", item)
 				break
 			}
 		}
