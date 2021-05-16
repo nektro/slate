@@ -87,7 +87,7 @@ func (p *ParserType) FuncDecl(f *lex.File) ast.Node {
 	res := new(ast.FuncDecl)
 
 	f.Symbol("(")
-	for true {
+	for {
 		n, ok := p.Try(f, p.Arg)
 		if !ok {
 			break
