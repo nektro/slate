@@ -12,7 +12,6 @@ var Errors = []string{
 
 func HandleTry(rcv interface{}) bool {
 	rcvs := fmt.Sprintf("%v", rcv)
-	// log.Println("debug:", rcvs)
 	for _, item := range Errors {
 		if strings.TrimPrefix(rcvs, item+":") != rcvs {
 			return false
