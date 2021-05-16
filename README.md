@@ -37,7 +37,7 @@ More code examples can be found in the [`./tests/`](./tests/) directory.
 
 ## Contributing
 
-Issues and Pull Requests welcome. As the project progresses I will make a list of focus areas.
+Issues welcome. As the project progresses I will make a list of focus areas.
 
 ## Contact
 
