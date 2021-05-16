@@ -5,7 +5,7 @@ set -x
 
 go build
 ./slate \
--run './tests/basics/01.slate' \
+-run 'tests/basics/01_asm_hello_world.slate' \
 
 llvm-as-11 out.ll
 
