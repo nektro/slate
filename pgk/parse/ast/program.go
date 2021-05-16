@@ -44,6 +44,7 @@ func ensureNoShadowing(haystack []*Variable) {
 		if stringsu.Contains(names, item.Name.Name) {
 			log.Fatalln("compile:", "found shadow of symbol", item.Name.Name)
 		}
+		names = append(names, item.Name.Name)
 	}
 }
 
