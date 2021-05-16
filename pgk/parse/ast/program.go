@@ -20,14 +20,8 @@ func (p *Program) Compile(mod *ir.Module) {
 	ensureNoShadowing(p.Stmts)
 	globals := VarScope{}
 	available := []string{}
-	notdone := []string{}
-	for _, item := range p.Stmts {
-		notdone = append(notdone, item.Name.Name)
-	}
+	notdone := stringsu.Depupe(collectSymbolDeps(p.Stmts, &[]string{}, "main"))
 	for {
-		if len(notdone) == 0 {
-			break
-		}
 		for _, item := range notdone {
 			stmt := getStmt(p.Stmts, item)
 			if containsAll(available, stmt.DependsOn()) {
@@ -47,6 +41,18 @@ func ensureNoShadowing(haystack []*Variable) {
 			log.Fatalln("compile:", "found shadow of symbol", item.Name.Name)
 		}
 	}
+}
+
+func collectSymbolDeps(haystack []*Variable, notdone *[]string, name string) []string {
+	st := getStmt(haystack, name)
+	if st == nil {
+		log.Fatalln("compile:", "can't find symbol:", name)
+	}
+	*notdone = append(*notdone, name)
+	for _, item := range st.DependsOn() {
+		collectSymbolDeps(haystack, notdone, item)
+	}
+	return *notdone
 }
 
 func containsAll(haystack, needle []string) bool {
