@@ -5,8 +5,7 @@ on:
       - master
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
-    # runs-on: [self-hosted, linux, ARM64]
+    runs-on: [self-hosted, linux, ARM64]
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
