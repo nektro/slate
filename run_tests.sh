@@ -10,6 +10,12 @@ trap 'err_report $?' ERR
 
 go build
 
+for file in $(find tests/fail | sort | grep \\.slate$)
+do
+    echo $file
+    ./tools/expect_fail.sh ./slate -run $file
+done
+
 for file in $(find tests/pass | sort | grep \\.slate$)
 do
     echo $file
