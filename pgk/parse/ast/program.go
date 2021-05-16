@@ -1,6 +1,8 @@
 package ast
 
 import (
+	"log"
+
 	"github.com/llir/llvm/ir"
 	"github.com/llir/llvm/ir/constant"
 	"github.com/nektro/go-util/arrays/stringsu"
@@ -15,6 +17,7 @@ func (p *Program) N() {}
 type VarScope map[string]constant.Constant
 
 func (p *Program) Compile(mod *ir.Module) {
+	ensureNoShadowing(p.Stmts)
 	globals := VarScope{}
 	available := []string{}
 	notdone := []string{}
@@ -35,6 +38,15 @@ func (p *Program) Compile(mod *ir.Module) {
 				// fmt.Println("compile:", "complete:", item)
 				break
 			}
+		}
+	}
+}
+
+func ensureNoShadowing(haystack []*Variable) {
+	names := []string{}
+	for _, item := range haystack {
+		if stringsu.Contains(names, item.Name.Name) {
+			log.Fatalln("compile:", "found shadow of symbol", item.Name.Name)
 		}
 	}
 }
