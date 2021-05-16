@@ -21,7 +21,11 @@ func (p *Program) Compile(mod *ir.Module) {
 	globals := VarScope{}
 	available := []string{}
 	notdone := stringsu.Depupe(collectSymbolDeps(p.Stmts, &[]string{}, "main"))
+
 	for {
+		if len(notdone) == 0 {
+			break
+		}
 		for _, item := range notdone {
 			stmt := getStmt(p.Stmts, item)
 			if containsAll(available, stmt.DependsOn()) {
