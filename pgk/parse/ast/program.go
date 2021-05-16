@@ -53,6 +53,14 @@ func collectSymbolDeps(haystack []*Variable, notdone *[]string, name string) []s
 	if st == nil {
 		log.Fatalln("compile:", "can't find symbol:", name)
 	}
+	if name == "main" {
+		if !st.Public {
+			log.Fatalln("compile:", "main needs to be public")
+		}
+		if _, ok := st.Value.(*FuncDecl); !ok {
+			log.Fatalln("compile:", "main must be a function")
+		}
+	}
 	*notdone = append(*notdone, name)
 	for _, item := range st.DependsOn() {
 		collectSymbolDeps(haystack, notdone, item)
