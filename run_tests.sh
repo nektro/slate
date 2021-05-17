@@ -21,5 +21,5 @@ do
     echo $file
     ./slate -run $file
     llvm-as-11 out.ll
-    lli-11 out.bc
+    lli-11 out.bc > /dev/null
 done
