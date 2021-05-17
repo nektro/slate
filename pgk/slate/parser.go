@@ -82,7 +82,7 @@ func (p *ParserType) Variable(f *lex.File, pub, cnst bool) ast.Node {
 		return &ast.Variable{ast.ScopeGlobal, n, pub, cnst, x}
 	}
 
-	p.fail("variable: didn't see func, saw " + f.Get().String())
+	p.fail("variable: saw " + f.Get().String())
 	return nil
 }
 
