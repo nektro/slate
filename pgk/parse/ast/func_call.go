@@ -42,6 +42,10 @@ func (p *FuncCall) Compile(mod *ir.Module, globals VarScope, fnprms map[string]*
 					params = append(params, pv)
 					continue
 				}
+				if gv, ok := globals[name]; ok {
+					params = append(params, gv)
+					continue
+				}
 				log.Fatalln("compile:", "func_call:", "can't determine arg value for", name)
 			}
 			pr, ok := fnprms[ref.Dots[0]]
