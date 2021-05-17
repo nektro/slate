@@ -149,7 +149,7 @@ func (p *ParserType) FuncCall(f *lex.File) ast.Node {
 	addParam := func(f *lex.File, c *ast.FuncCall, n ast.Node) {
 		rv := reflect.ValueOf(n)
 		if !(rv.Kind() == reflect.Kind(0)) && !rv.IsNil() {
-			c.Params = append(c.Params, n)
+			c.Args = append(c.Args, n)
 			f.Symbol(",")
 		}
 	}
@@ -157,7 +157,7 @@ func (p *ParserType) FuncCall(f *lex.File) ast.Node {
 	res.Builtin = f.Try(f.Symbol, "@")
 	res.Name = f.Type(lex.TTWrd.S()).V
 	f.Symbol("(")
-	l := len(res.Params)
+	l := len(res.Args)
 	for {
 		addParam(f, res, f.TryV(f.TypeS, lex.TTStr.S()))
 		addParam(f, res, f.TryV(f.TypeS, lex.TTNum.S()))
@@ -166,7 +166,7 @@ func (p *ParserType) FuncCall(f *lex.File) ast.Node {
 		if f.Try(f.Symbol, ")") {
 			break
 		}
-		ll := len(res.Params)
+		ll := len(res.Args)
 		if ll != l {
 			l = ll
 			continue

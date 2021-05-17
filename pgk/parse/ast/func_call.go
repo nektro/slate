@@ -14,14 +14,14 @@ import (
 type FuncCall struct {
 	Name    string
 	Builtin bool
-	Params  []Node
+	Args    []Node
 }
 
 func (p *FuncCall) N() {}
 
 func (p *FuncCall) Compile(mod *ir.Module, globals VarScope, fnprms map[string]*ir.Param, block *ir.Block) {
 	params := []value.Value{}
-	for _, item := range p.Params {
+	for _, item := range p.Args {
 		switch item.(type) {
 		case *lex.Token:
 			v := item.(*lex.Token)
