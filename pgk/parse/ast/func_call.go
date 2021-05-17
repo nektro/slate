@@ -38,8 +38,11 @@ func (p *FuncCall) Compile(mod *ir.Module, globals VarScope, fnprms map[string]*
 			ref := item.(*Ref)
 			name := ref.V()
 			if !strings.ContainsRune(name, '.') {
-				params = append(params, fnprms[name])
-				continue
+				if pv, ok := fnprms[name]; ok {
+					params = append(params, pv)
+					continue
+				}
+				log.Fatalln("compile:", "func_call:", "can't determine arg value for", name)
 			}
 			pr, ok := fnprms[ref.Dots[0]]
 			if !ok {
