@@ -7,6 +7,7 @@ import (
 
 	"github.com/llir/llvm/ir"
 	"github.com/llir/llvm/ir/value"
+	"github.com/nektro/go-util/arrays/stringsu"
 	"github.com/nektro/slate/pgk/lex"
 	"github.com/nektro/slate/pgk/parse/llvm"
 )
@@ -74,4 +75,26 @@ func (p *FuncCall) Compile(mod *ir.Module, globals VarScope, fnprms map[string]*
 		log.Fatalln("compile:", "func_call:", "can't find symbol", p.Name)
 	}
 	block.NewCall(callee, params...)
+}
+
+func (p *FuncCall) DependsOn(fnparams []*Arg) []string {
+	res := []string{p.Name}
+	paramnames := []string{}
+	for _, item := range fnparams {
+		paramnames = append(paramnames, item.Name)
+	}
+	argnames := []string{}
+	for _, item := range p.Args {
+		switch item.(type) {
+		case *Ref:
+			v := item.(*Ref)
+			argnames = append(argnames, v.Dots[0])
+		}
+	}
+	for _, item := range argnames {
+		if !stringsu.Contains(paramnames, item) {
+			res = append(res, item)
+		}
+	}
+	return res
 }

@@ -48,7 +48,7 @@ func (p *FuncDecl) DependsOn() []string {
 	for _, item := range p.Body.Calls {
 		switch item.(type) {
 		case *FuncCall:
-			res = append(res, item.(*FuncCall).Name)
+			res = append(res, item.(*FuncCall).DependsOn(p.Args)...)
 		case *InlineAsm:
 			// none
 		default:
