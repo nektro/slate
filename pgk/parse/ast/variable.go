@@ -43,6 +43,11 @@ func (p *Variable) Compile(mod *ir.Module, globals VarScope) {
 				globals[p.Name.Name] = g
 				return
 			}
+			if v.T == lex.TTStr {
+				g := llvm.String(mod, v.SV())
+				globals[p.Name.Name] = g
+				return
+			}
 			log.Fatalln("compile failure:", "variable", "unhandled token:", v.T)
 		}
 		log.Fatalln("compile failure:", "variable:", "unhandled type:", p.Value)
