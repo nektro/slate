@@ -41,6 +41,8 @@ More code examples can be found in the [`./tests/`](./tests/) directory.
 
 Issues welcome. As the project progresses I will make a list of focus areas.
 
+In regards to pull requests, I appreciate the enthusiasm but at this stage I will be more hesitant than normal about what gets merged from other people. This project is largely an experiment and learning environment for me, so please keep that in mind.
+
 ## Contact
 
 - hello@nektro.net
