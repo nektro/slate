@@ -34,6 +34,8 @@ More code examples can be found in the [`./tests/`](./tests/) directory.
 - https://github.com/ziglang/zig
 - https://github.com/denoland/deno
 - https://github.com/rust-lang/rust
+- https://www.haskell.org/
+- https://www.roc-lang.org/
 
 ## Contributing
 
