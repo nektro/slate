@@ -12,6 +12,8 @@ A new programming language made by me. Used as a tool to learn about compilers.
 
 - Golang 1.14
 - LLVM 11
+- https://github.com/llir/llvm
+- https://github.com/nektro/go-util
 
 ## Usage
 
