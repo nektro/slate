@@ -37,9 +37,9 @@ var (
 
 func GetType(s string) types.Type {
 	switch s {
-	case "int":
+	case "Int":
 		return I64
-	case "string":
+	case "String":
 		return StringT
 	}
 	log.Fatalln("compile failure:", "cannot determine type from name:", s)
