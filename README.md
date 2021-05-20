@@ -1,10 +1,8 @@
 # Slate
 
 ![loc](https://sloc.xyz/github/nektro/slate)
-[![license](https://img.shields.io/github/license/nektro/slate.svg)](https://github.com/nektro/slate/blob/master/LICENSE)
 [![discord](https://img.shields.io/discord/551971034593755159.svg?logo=discord)](https://discord.gg/P6Y4zQC)
 [![goreportcard](https://goreportcard.com/badge/github.com/nektro/slate)](https://goreportcard.com/report/github.com/nektro/slate)
-[![issuehunt](https://img.shields.io/badge/issuehunt-slate-38d39f)](https://issuehunt.io/r/nektro/slate)
 
 A new programming language made by me. Used as a tool to learn about compilers.
 
