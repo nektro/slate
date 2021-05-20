@@ -46,4 +46,4 @@ Issues welcome. As the project progresses I will make a list of focus areas.
 
 ## License
 
-MIT
+ACSL v1.4. See [LICENSE](LICENSE) for more info.
