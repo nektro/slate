@@ -14,7 +14,6 @@ type Variable struct {
 	Scope
 	Name   *Arg
 	Public bool
-	Const  bool
 	Value  Node
 }
 

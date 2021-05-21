@@ -77,7 +77,3 @@ const (
 	TTSym TokenType = "S"
 	TTNum TokenType = "N"
 )
-
-func (tt TokenType) S() string {
-	return string(tt)
-}

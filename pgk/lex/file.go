@@ -52,9 +52,13 @@ func (f *File) Left() []*Token {
 	return f.tokens[f.index:]
 }
 
-func (f *File) Type(y string) *Token {
+func (f *File) Done() bool {
+	return f.index == len(f.tokens)
+}
+
+func (f *File) Type(y TokenType) *Token {
 	t := f.Get()
-	if t.T.S() != y {
+	if t.T != y {
 		panic(fmt.Sprint("expected token type:", y, ",", "instead got:", t.PL(), ":", f.file+":"+t.LP()))
 	}
 	return f.ret(t)
