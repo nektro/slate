@@ -72,7 +72,6 @@ func (p *ParserType) Variable(f *lex.File, pub bool, decl bool) ast.Node {
 		}
 		return &ast.Variable{ast.ScopeGlobal, n, pub, v}
 	}
-
 	panic("slate: parse: variable: 1")
 }
 
@@ -96,6 +95,10 @@ func (p *ParserType) Value(f *lex.File) ast.Node {
 		return x
 	}
 	if x := f.TryV(f.TypeS, string(lex.TTWrd)); x != nil {
+		if f.Try(f.Symbol, "(") {
+			f.Back(1)
+			return p.FuncCall(f, x.V, false)
+		}
 		return p.Ref(f, &x.V)
 	}
 	return nil

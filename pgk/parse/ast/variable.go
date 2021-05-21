@@ -48,6 +48,30 @@ func (p *Variable) Compile(mod *ir.Module, globals VarScope) {
 			}
 			log.Fatalln("compile failure:", "variable", "unhandled token:", v.T)
 		}
+		if v, ok := p.Value.(*FuncCall); ok {
+			f := globals[v.Name]
+			llf, okk := f.LLvmV.(*ir.Func)
+			asfd := f.ASTgV.(*FuncDecl)
+			if !okk {
+				log.Fatalln("compile:", "variable:", "func_call:", "symbol '"+v.Name+"' is not a function")
+			}
+			if len(llf.Params) > len(v.Args) {
+				args := v.Args
+				for _, item := range asfd.Args[len(v.Args):] {
+					args = append(args, &Ref{[]string{item.Name}})
+				}
+				d := &FuncDecl{
+					Args: asfd.Args[len(v.Args):],
+					Ret:  asfd.Ret,
+					Body: &Block{[]Node{
+						&FuncCall{v.Name, false, args},
+					}},
+				}
+				d.Compile(mod, globals, p.Name.Name)
+				return
+			}
+			log.Fatalln("compile:", "variable:", "func_call:", "only currying is implemented")
+		}
 		log.Fatalln("compile failure:", "variable:", "unhandled type:", p.Value)
 	default:
 		log.Fatalln("compile failure:", "variable:", "unhandled scope:", p.Scope)
@@ -60,6 +84,8 @@ func (p *Variable) DependsOn() []string {
 		return p.Value.(*FuncDecl).DependsOn()
 	case *lex.Token:
 		return []string{}
+	case *FuncCall:
+		return []string{p.Value.(*FuncCall).Name}
 	default:
 		log.Fatalln("compile:", "depends:", "variable:", "unhandled type:", p.Value)
 	}

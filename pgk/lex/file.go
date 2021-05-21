@@ -120,3 +120,7 @@ func (f *File) Try(fn func(string) *Token, s string) (res bool) {
 	v := f.TryV(fn, s)
 	return v != nil
 }
+
+func (f *File) Back(x int) {
+	f.index -= x
+}
