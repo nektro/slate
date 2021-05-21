@@ -35,16 +35,15 @@ func (p *Variable) Compile(mod *ir.Module, globals VarScope) {
 			f.Compile(mod, globals, p.Name.Name)
 			return
 		}
-		v, ok := p.Value.(*lex.Token)
-		if ok {
+		if v, ok := p.Value.(*lex.Token); ok {
 			if v.T == lex.TTNum {
 				g := mod.NewGlobalDef("", constant.NewInt(llvm.GetType("int").(*types.IntType), v.IV()))
-				globals[p.Name.Name] = g
+				globals[p.Name.Name] = CGValue{g, v}
 				return
 			}
 			if v.T == lex.TTStr {
 				g := llvm.String(mod, v.SV())
-				globals[p.Name.Name] = g
+				globals[p.Name.Name] = CGValue{g, v}
 				return
 			}
 			log.Fatalln("compile failure:", "variable", "unhandled token:", v.T)

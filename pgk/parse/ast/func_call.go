@@ -43,7 +43,7 @@ func (p *FuncCall) Compile(mod *ir.Module, globals VarScope, fnprms map[string]*
 					continue
 				}
 				if gv, ok := globals[name]; ok {
-					params = append(params, gv)
+					params = append(params, gv.LLvmV)
 					continue
 				}
 				log.Fatalln("compile:", "func_call:", "can't determine arg value for", name)
@@ -81,7 +81,7 @@ func (p *FuncCall) Compile(mod *ir.Module, globals VarScope, fnprms map[string]*
 	if !ok {
 		log.Fatalln("compile:", "func_call:", "can't find symbol", p.Name)
 	}
-	block.NewCall(callee, params...)
+	block.NewCall(callee.LLvmV, params...)
 }
 
 func (p *FuncCall) DependsOn(fnparams []*Arg) []string {

@@ -40,7 +40,7 @@ func (p *FuncDecl) Compile(mod *ir.Module, globals VarScope, name string) {
 	} else {
 		blk.NewRet(nil)
 	}
-	globals[name] = fn
+	globals[name] = CGValue{fn, p}
 }
 
 func (p *FuncDecl) DependsOn() []string {

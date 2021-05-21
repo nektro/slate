@@ -14,7 +14,12 @@ type Program struct {
 
 func (p *Program) N() {}
 
-type VarScope map[string]constant.Constant
+type CGValue struct {
+	LLvmV constant.Constant
+	ASTgV Node
+}
+
+type VarScope map[string]CGValue
 
 func (p *Program) Compile(mod *ir.Module) {
 	ensureNoShadowing(p.Stmts)
