@@ -141,6 +141,7 @@ func (p *ParserType) Block(f *lex.File) ast.Node {
 			break
 		}
 		res.Calls = append(res.Calls, n)
+		f.Symbol(";")
 	}
 	f.Symbol("}")
 	return res
