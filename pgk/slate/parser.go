@@ -167,12 +167,15 @@ func (p *ParserType) FuncCall(f *lex.File, name string, builtin bool) ast.Node {
 	for {
 		n := p.Value(f)
 		if n == nil {
+			f.Symbol(")")
 			break
 		}
 		args = append(args, n)
+		if f.Try(f.Symbol, ")") {
+			break
+		}
 		f.Symbol(",")
 	}
-	f.Symbol(")")
 	return &ast.FuncCall{name, builtin, args}
 }
 
