@@ -1,0 +1,16 @@
+https://git.musl-libc.org/cgit/musl/tree/arch/aarch64/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/arm/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/i386/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/m68k/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/microblaze/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/mips/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/mips64/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/mipsn32/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/or1k/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/powerpc/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/powerpc64/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/riscv64/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/s390x/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/sh/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/x32/bits/syscall.h.in
+https://git.musl-libc.org/cgit/musl/tree/arch/x86_64/bits/syscall.h.in

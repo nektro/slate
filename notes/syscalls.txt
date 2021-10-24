@@ -3,3 +3,5 @@ https://github.com/ziglang/zig/blob/master/lib/std/os/linux/arm64.zig
 https://github.com/ziglang/zig/blob/master/lib/std/os/bits/linux/arm64.zig
 
 https://filippo.io/linux-syscall-table/
+
+https://github.com/llvm/llvm-project/blob/llvmorg-11.0.0/llvm/include/llvm/ADT/Triple.h
