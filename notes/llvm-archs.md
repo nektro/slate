@@ -1,13 +1,13 @@
 ```
-$ llc-11 --version
+$ llc-12 --version
 ```
 ```
 LLVM (http://llvm.org/):
-  LLVM version 11.0.1
+  LLVM version 12.0.0
   
   Optimized build.
-  Default target: aarch64-unknown-linux-gnu
-  Host CPU: cortex-a53
+  Default target: x86_64-pc-linux-gnu
+  Host CPU: znver1
 
   Registered Targets:
     aarch64    - AArch64 (little endian)
@@ -32,6 +32,7 @@ LLVM (http://llvm.org/):
     nvptx      - NVIDIA PTX 32-bit
     nvptx64    - NVIDIA PTX 64-bit
     ppc32      - PowerPC 32
+    ppc32le    - PowerPC 32 LE
     ppc64      - PowerPC 64
     ppc64le    - PowerPC 64 LE
     r600       - AMD GPUs HD2XXX-HD6XXX
@@ -48,4 +49,3 @@ LLVM (http://llvm.org/):
     x86        - 32-bit X86: Pentium-Pro and above
     x86-64     - 64-bit X86: EM64T and AMD64
     xcore      - XCore
-```

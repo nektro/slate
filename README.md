@@ -6,24 +6,24 @@
 
 A new programming language made by me. Used as a tool to learn about compilers.
 
-> Note: some code snippets and examples may only work on arm64 Linux since that's what I have.
+> Note: some code snippets and examples may only work on x64 Linux since that's what I have.
 
 ## Built With
 
 - Golang 1.14
-- LLVM 11
+- LLVM 12
 - https://github.com/llir/llvm
 - https://github.com/nektro/go-util
 
 ## Usage
 
-Running `./start_local.sh` will build and run Slate on the arm64 Linux Hello World. Feel free to edit either file.
+Running `./start_local.sh` will build and run Slate on the x64 Linux Hello World. Feel free to edit either file.
 
 ```
 go build
 ./slate -run {path/to/src_file.slate}
-llvm-as-11 out.ll
-lli-11 out.bc
+llvm-as-12 out.ll
+lli-12 out.bc
 ```
 
 More code examples can be found in the [`./tests/`](./tests/) directory.

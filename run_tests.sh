@@ -20,6 +20,6 @@ for file in $(find tests/pass | sort | grep \\.slate$)
 do
     echo $file
     ./slate -run $file
-    llvm-as-11 out.ll
-    lli-11 out.bc > /dev/null
+    llvm-as-12 out.ll
+    lli-12 out.bc > /dev/null
 done

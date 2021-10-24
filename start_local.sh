@@ -7,6 +7,6 @@ go build
 ./slate \
 -run 'tests/pass/behavior/01_asm_hello_world.slate' \
 
-llvm-as-11 out.ll
+llvm-as-12 out.ll
 
-lli-11 out.bc
+lli-12 out.bc

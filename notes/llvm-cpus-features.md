@@ -1,5 +1,5 @@
 ```
-$ llc-11 -march=aarch64 -mattr=help
+$ llc-12 -march=aarch64 -mattr=help
 ```
 ```
 Available CPUs for this target:
@@ -9,6 +9,7 @@ Available CPUs for this target:
   apple-a11     - Select the apple-a11 processor.
   apple-a12     - Select the apple-a12 processor.
   apple-a13     - Select the apple-a13 processor.
+  apple-a14     - Select the apple-a14 processor.
   apple-a7      - Select the apple-a7 processor.
   apple-a8      - Select the apple-a8 processor.
   apple-a9      - Select the apple-a9 processor.
@@ -30,6 +31,8 @@ Available CPUs for this target:
   cortex-a76ae  - Select the cortex-a76ae processor.
   cortex-a77    - Select the cortex-a77 processor.
   cortex-a78    - Select the cortex-a78 processor.
+  cortex-a78c   - Select the cortex-a78c processor.
+  cortex-r82    - Select the cortex-r82 processor.
   cortex-x1     - Select the cortex-x1 processor.
   cyclone       - Select the cyclone processor.
   exynos-m3     - Select the exynos-m3 processor.
@@ -40,6 +43,8 @@ Available CPUs for this target:
   kryo          - Select the kryo processor.
   neoverse-e1   - Select the neoverse-e1 processor.
   neoverse-n1   - Select the neoverse-n1 processor.
+  neoverse-n2   - Select the neoverse-n2 processor.
+  neoverse-v1   - Select the neoverse-v1 processor.
   saphira       - Select the saphira processor.
   thunderx      - Select the thunderx processor.
   thunderx2t99  - Select the thunderx2t99 processor.
@@ -51,6 +56,7 @@ Available CPUs for this target:
 
 Available features for this target:
 
+  CONTEXTIDREL2                      - Enable RW operand CONTEXTIDR_EL2.
   a35                                - Cortex-A35 ARM processors.
   a53                                - Cortex-A53 ARM processors.
   a55                                - Cortex-A55 ARM processors.
@@ -72,11 +78,13 @@ Available features for this target:
   apple-a11                          - Apple A11.
   apple-a12                          - Apple A12.
   apple-a13                          - Apple A13.
+  apple-a14                          - Apple A14.
   apple-a7                           - Apple A7 (the CPU formerly known as Cyclone).
   arith-bcc-fusion                   - CPU fuses arithmetic+bcc operations.
   arith-cbz-fusion                   - CPU fuses arithmetic + cbz/cbnz operations.
   balance-fp-ops                     - balance mix of odd and even D-registers for fp multiply(-accumulate) ops.
   bf16                               - Enable BFloat16 Extension.
+  brbe                               - Enable Branch Record Buffer Extension.
   bti                                - Enable Branch Target Identification.
   call-saved-x10                     - Make X10 callee saved..
   call-saved-x11                     - Make X11 callee saved..
@@ -91,8 +99,11 @@ Available features for this target:
   ccdp                               - Enable v8.5 Cache Clean to Point of Deep Persistence.
   ccidx                              - Enable v8.3-A Extend of the CCSIDR number of sets.
   ccpp                               - Enable v8.2 data Cache Clean to Point of Persistence.
+  cmp-bcc-fusion                     - CPU fuses cmp+bcc operations.
   complxnum                          - Enable v8.3-A Floating-point complex number support.
   cortex-a78                         - Cortex-A78 ARM processors.
+  cortex-a78c                        - Cortex-A78C ARM processors.
+  cortex-r82                         - Cortex-R82 ARM Processors.
   cortex-x1                          - Cortex-X1 ARM processors.
   crc                                - Enable ARMv8 CRC-32 checksum instructions.
   crypto                             - Enable cryptographic instructions.
@@ -109,7 +120,7 @@ Available features for this target:
   f64mm                              - Enable Matrix Multiply FP64 Extension.
   falkor                             - Qualcomm Falkor processors.
   fgt                                - Enable fine grained virtualization traps extension.
-  fmi                                - Enable v8.4-A Flag Manipulation Instructions.
+  flagm                              - Enable v8.4-A Flag Manipulation Instructions.
   force-32bit-jump-tables            - Force jump table entries to be 32-bits wide except at MinSize.
   fp-armv8                           - Enable ARMv8 FP.
   fp16fml                            - Enable FP16 FML instructions.
@@ -123,10 +134,12 @@ Available features for this target:
   fuse-literals                      - CPU fuses literal generation operations.
   harden-sls-blr                     - Harden against straight line speculation across BLR instructions.
   harden-sls-retbr                   - Harden against straight line speculation across RET and BR instructions.
+  hcx                                - Enable Armv8.7-A HCRX_EL2 system register.
   i8mm                               - Enable Matrix Multiply Int8 Extension.
   jsconv                             - Enable v8.3-A JavaScript FP conversion instructions.
   kryo                               - Qualcomm Kryo processors.
   lor                                - Enables ARM v8.1 Limited Ordering Regions extension.
+  ls64                               - Enable Armv8.7-A LD64B/ST64B Accelerator Extension.
   lse                                - Enable ARMv8.1 Large System Extension (LSE) atomic instructions.
   lsl-fast                           - CPU has a fastpath logical shift of up to 3 places.
   mpam                               - Enable v8.4-A Memory system Partitioning and Monitoring extension.
@@ -134,18 +147,20 @@ Available features for this target:
   neon                               - Enable Advanced SIMD instructions.
   neoversee1                         - Neoverse E1 ARM processors.
   neoversen1                         - Neoverse N1 ARM processors.
+  neoversen2                         - Neoverse N2 ARM processors.
+  neoversev1                         - Neoverse V1 ARM processors.
   no-neg-immediates                  - Convert immediates and instructions to their negated or complemented equivalent when the immediate does not fit in the encoding..
   nv                                 - Enable v8.4-A Nested Virtualization Enchancement.
-  pa                                 - Enable v8.3-A Pointer Authentication extension.
+  outline-atomics                    - Enable out of line atomics to support LSE instructions.
   pan                                - Enables ARM v8.1 Privileged Access-Never extension.
   pan-rwv                            - Enable v8.2 PAN s1e1R and s1e1W Variants.
+  pauth                              - Enable v8.3-A Pointer Authentication extension.
   perfmon                            - Enable ARMv8 PMUv3 Performance Monitors extension.
   pmu                                - Enable v8.4-A PMU extension.
   predictable-select-expensive       - Prefer likely predicted branches over selects.
   predres                            - Enable v8.5a execution and data prediction invalidation instructions.
   rand                               - Enable Random Number generation instructions.
   ras                                - Enable ARMv8 Reliability, Availability and Serviceability Extensions.
-  rasv8_4                            - Enable v8.4-A Reliability, Availability and Serviceability extension.
   rcpc                               - Enable support for RCPC extension.
   rcpc-immo                          - Enable v8.4-A RCPC instructions with Immediate Offsets.
   rdm                                - Enable ARMv8.1 Rounding Double Multiply Add/Subtract instructions.
@@ -184,6 +199,7 @@ Available features for this target:
   slow-strqro-store                  - STR of Q register with register offset is slow.
   sm4                                - Enable SM3 and SM4 support.
   spe                                - Enable Statistical Profiling extension.
+  spe-eef                            - Enable extra register in the Statistical Profiling Extension.
   specrestrict                       - Enable architectural speculation restriction.
   ssbs                               - Enable Speculative Store Bypass Safe bit.
   strict-align                       - Disallow all unaligned memory access.
@@ -219,7 +235,11 @@ Available features for this target:
   v8.4a                              - Support ARM v8.4a instructions.
   v8.5a                              - Support ARM v8.5a instructions.
   v8.6a                              - Support ARM v8.6a instructions.
+  v8.7a                              - Support ARM v8.7a instructions.
+  v8r                                - Support ARM v8r instructions.
   vh                                 - Enables ARM v8.1 Virtual Host extension.
+  wfxt                               - Enable Armv8.7-A WFET and WFIT instruction.
+  xs                                 - Enable Armv8.7-A limited-TLB-maintenance instruction.
   zcm                                - Has zero-cycle register moves.
   zcz                                - Has zero-cycle zeroing instructions.
   zcz-fp                             - Has zero-cycle zeroing instructions for FP registers.
@@ -228,4 +248,3 @@ Available features for this target:
 
 Use +feature to enable a feature, or -feature to disable it.
 For example, llc -mcpu=mycpu -mattr=+feature1,-feature2
-```
