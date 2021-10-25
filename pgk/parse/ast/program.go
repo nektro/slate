@@ -73,6 +73,9 @@ func collectSymbolDeps(haystack []*Variable, notdone *[]string, name string) []s
 	}
 	*notdone = append(*notdone, name)
 	for _, item := range st.DependsOn() {
+		if item == name {
+			continue // depended on self, symbol is recursive
+		}
 		collectSymbolDeps(haystack, notdone, item)
 	}
 	return *notdone
