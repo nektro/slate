@@ -76,6 +76,9 @@ func collectSymbolDeps(haystack []*Variable, notdone *[]string, name string) []s
 		if item == name {
 			continue // depended on self, symbol is recursive
 		}
+		if stringsu.Contains(*notdone, item) {
+			continue // we've already added this to the list
+		}
 		collectSymbolDeps(haystack, notdone, item)
 	}
 	return *notdone
