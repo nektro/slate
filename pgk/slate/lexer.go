@@ -41,6 +41,9 @@ func (v *sLexer) CouldBeWord(s string) bool {
 		if c >= '0' && c <= '9' {
 			continue
 		}
+		if c == '_' {
+			continue
+		}
 		b++
 	}
 	if b > 0 {
