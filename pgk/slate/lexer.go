@@ -18,10 +18,10 @@ var (
 	Lexer = &lex.Lexer{
 		Inner: &sLexer{
 			[]string{
+				"pub", "const", "asm", "true", "false",
 				"func", "return", "defer", "errdefer", "comptime",
-				"pub", "const", "import", "asm",
 				"if", "else", "for", "break", "continue",
-				"type", "struct", "interface", "enum",
+				"union", "enum", "struct", "interface",
 			},
 			`(){}[],.;=+-*/%<>|&^!@:`,
 			`"'`,
