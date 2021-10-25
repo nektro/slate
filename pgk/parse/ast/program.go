@@ -27,6 +27,7 @@ func (p *Program) Compile(mod *ir.Module) {
 	available := []string{}
 	notdone := stringsu.Depupe(collectSymbolDeps(p.Stmts, &[]string{}, "main"))
 
+	l := len(notdone)
 	for {
 		if len(notdone) == 0 {
 			break
@@ -40,6 +41,10 @@ func (p *Program) Compile(mod *ir.Module) {
 				break
 			}
 		}
+		if l == len(notdone) {
+			panic("compile: gen'd no symbols")
+		}
+		l = len(notdone)
 	}
 }
 
