@@ -14,6 +14,8 @@ A new programming language made by me. Used as a tool to learn about compilers.
 
 ## Inspirations
 
+- C
+- https://harelang.org/
 - https://github.com/golang/go
 - https://github.com/ziglang/zig
 - https://github.com/denoland/deno
