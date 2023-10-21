@@ -2,7 +2,7 @@
 
 A copy of https://github.com/rui314/chibicc at the commit [`cc`](./../cc/) is based on.
 
-Currently https://github.com/rui314/chibicc/commit/cc5a6d978144bda90220bd10866c4fd908d07546
+Currently https://github.com/rui314/chibicc/commit/84cfcaf98f3d19c8f0f316e22a61725ad201f0f6
 
 ## License
 
