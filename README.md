@@ -50,4 +50,6 @@ In regards to pull requests, I appreciate the enthusiasm but at this stage I wil
 
 ## License
 
-ACSL v1.4. See [LICENSE](LICENSE) for more info.
+Mozilla Public License Version 2.0
+
+Copyright 2023 Meghan Denny
