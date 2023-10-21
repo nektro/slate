@@ -1,6 +1,8 @@
 # Slate
 
 ![loc](https://sloc.xyz/github/nektro/slate)
+[![justforfunnoreally.dev badge](https://img.shields.io/badge/justforfunnoreally-dev-9ff)](https://justforfunnoreally.dev)
+[![nektro @ github sponsors](https://img.shields.io/badge/sponsors-nektro-purple?logo=github)](https://github.com/sponsors/nektro)
 
 A new programming language made by me. Used as a tool to learn about compilers.
 
