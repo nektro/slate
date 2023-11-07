@@ -1,0 +1,5 @@
+id: 86yr6axq3vgb4vo4059nwzuyfzbvym6mk7bg5jz8yasnt8ge
+name: slate
+license: MPL-2.0
+description: A new mutually self-hosting language for bootstrapping development on Linux.
+root_dependencies:

@@ -1,0 +1,18 @@
+pub let main = func() {
+    print("Hello, world!\n");
+};
+
+let print = func(s: []u8) {
+    # 1 is the file descriptor for std out on linux
+    write(1, s);
+};
+
+let write = func(fd: u32, s: []u8) {
+    # 1 is the ID for the write syscall on x86_64
+    syscall3(1, fd, s.ptr, s.len);
+};
+
+let syscall3 = func(call: usize, arg1: usize, arg2: usize, arg3: usize) {
+    # this function only works on arm64
+    asm "syscall", "=r,{rax},{rdi},{rsi},{rdx}", call, arg1, arg2, arg3;
+};
